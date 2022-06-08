@@ -1,5 +1,6 @@
 package model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -7,12 +8,11 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.FieldDefaults;
 
-import java.beans.Transient;
-
 @Getter
 @Setter
 @ToString
 @FieldDefaults(level = AccessLevel.PRIVATE)
+@JsonIgnoreProperties(value = { "TechRegs" })
 public class Product {
 
     @JsonProperty("DeclareType")
@@ -40,5 +40,5 @@ public class Product {
     @JsonProperty("PlaceMark")
     Object placeMark;
     @JsonProperty("TechRegs")
-    transient TechRegs techRegs;
+    TechRegs techRegs;
 }
